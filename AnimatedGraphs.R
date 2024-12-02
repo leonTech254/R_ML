@@ -1,8 +1,6 @@
-library(ggplot2) 
-library(gganimate) 
-anim_bar <- ggplot(mtcars, aes(x=factor(cyl), fill=factor(gear))) + 
-  geom_bar() + 
-  xlab("Number of Cylinders") + 
-  ylab("Frequency") + transition_states(gear, transition_length = 2, state_length = 1) 
+anim_hist <- ggplot(mtcars, aes(x=mpg)) + 
+  geom_histogram(binwidth=5) + 
+  xlab("Miles Per Gallon") + ylab("Frequency") + 
+  transition_states(cyl, transition_length = 2, state_length = 1) 
 
-anim_save("animated_bar.gif", anim_bar)
+anim_save("animated_hist.gif", anim_hist)
